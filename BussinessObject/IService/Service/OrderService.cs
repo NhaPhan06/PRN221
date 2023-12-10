@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BussinessObject.CartService;
 using BussinessObject.IService;
 using DataAccess.DataAccess;
 using DataAccess.IRepository.IUnitOfWork;
@@ -8,12 +9,10 @@ namespace BussinessObject.Service;
 public class OrderService : IOrderService
 {
     private IUnitOfWork _unitOfWork;
-    private IMapper _mapper;
 
-    public OrderService(IUnitOfWork unitOfWork, IMapper mapper)
+    public OrderService(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
-        _mapper = mapper;
     }
     public async Task<List<Order>> GetAllOrder()
     {
@@ -23,5 +22,10 @@ public class OrderService : IOrderService
     public Task<List<Order>> GetOrderOfCustomer(Guid customerId)
     {
         return _unitOfWork.Order.GetAllOrderOfCustomer(customerId);
+    }
+
+    public Task OrderPizza()
+    {
+        throw new NotImplementedException();
     }
 }

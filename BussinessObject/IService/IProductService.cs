@@ -1,9 +1,10 @@
-﻿using BussinessObject.DTOS;
+﻿using DataAccess.DataAccess;
 
 namespace BussinessObject.IService;
 
 public interface IProductService
 {
-    Task<List<Menu>> GetMenu();
-    Task<List<Menu>> Search(String name);
+    Task<Product> GetByID(Guid id);
+    Task<List<Product>> GetProduct();
+    Task<List<Product>> Search(String name);
 }
