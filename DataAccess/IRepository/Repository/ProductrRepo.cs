@@ -13,7 +13,7 @@ public class ProductrRepo : Generic<Product>, IProductRepo
 
     public async Task<List<Product>> GetProductForMenu()
     {
-        return await _context.Products.Where(p => p.Status == "Active").ToListAsync();
+        return await _context.Products.Where(p => p.Status == "Stocking").ToListAsync();
     }
 
     public async Task<List<Product>> Search(string name)

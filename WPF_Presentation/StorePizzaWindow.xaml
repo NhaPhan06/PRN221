@@ -4,13 +4,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:WPF_Presentation"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="StorePizzaWindow" Height="450" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="HeaderStyle" TargetType="GridViewColumnHeader">
+            <Setter Property="Background" Value="White" />
+        </Style>
+    </Window.Resources>
     <Border CornerRadius="12">
         <Border CornerRadius="10"
                 BorderThickness="2"
@@ -31,113 +39,102 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
-                    <RowDefinition />
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="90"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="25" />
-                        <ColumnDefinition Width="25" />
-                        <ColumnDefinition Width="5" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Pizza Store"
-                               Foreground="DarkGray"
-                               FontSize="15"
-                               Style="{StaticResource MaterialDesignHeadline1TextBlock}"
-                               Grid.Column="0"
-                               VerticalAlignment="Center"
-                               Margin="10,0,0,0" />
-                    <Button x:Name="btnMinimize"
-                            BorderThickness="0"
-                            Content="-"
-                            Foreground="White"
-                            FontSize="16"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Grid.Column="1"
-                            Click="BtnMinimize_OnClick">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#28AEED" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#278BEF" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                <StackPanel x:Name="pnlControlBar"
+                            Grid.Row="0"
+                            Orientation="Horizontal"
+                            FlowDirection="RightToLeft"
+                            Background="Transparent"
+                            Margin="0,0,0,0"
+                            MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                            MouseEnter="pnlControlBar_MouseEnter">
                     <Button x:Name="btnClose"
-                            BorderThickness="0"
-                            Content="X"
-                            Foreground="White"
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Grid.Column="2"
-                            Click="BtnClose_OnClick">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#DA34AE" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#C62DAE" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
+                            Style="{StaticResource controlButton}"
+                            Tag="{StaticResource color4}"
+                            Click="btnClose_Click">
+                        <fa:IconImage Icon="Xmark" Foreground="Beige" Style="{StaticResource controlButtonIcon}"/>
                     </Button>
-                </Grid>
+                    <Button x:Name="btnMaximize"
+                            Style="{StaticResource controlButton}"
+                            Tag="{StaticResource color6}"
+                            Click="btnMaximize_Click">
+                        <fa:IconImage Icon="Square" Foreground="Beige" Style="{StaticResource controlButtonIcon}"/>
+                    </Button>
+                    <Button x:Name="btnMinimize"
+                            Style="{StaticResource controlButton}"
+                            Tag="{StaticResource color8}"
+                            Click="btnMinimize_Click">
+                        <fa:IconImage Icon="WindowMinimize" Foreground="Beige" Style="{StaticResource controlButtonIcon}"/>
+                    </Button>
+                    <Button x:Name="btnBack"
+                            Style="{StaticResource controlButton}"
+                            Tag="{StaticResource color8}"
+                            Click="BtnBack_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Beige"/>
+                    </Button>
+                </StackPanel>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="500"/>
+                        <ColumnDefinition Width="400"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ListView Margin="20">
-                        
-                    </ListView>
-                    <StackPanel Grid.Column="1" Margin="20">
-                        <StackPanel>
-                            <Label Content="CART" Foreground="Beige"/>
-                            <ListView Name="CartListView" Background="Azure">
-                                <ListView.View>
-                                    <GridView>
-                                        <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding Id}" />
-                                        <GridViewColumn Header="Sản Phẩm" DisplayMemberBinding="{Binding Name}" />
-                                        <GridViewColumn Header="Số Lượng">
-                                            <GridViewColumn.CellTemplate>
-                                                <DataTemplate>
-                                                    <TextBox Name="IntegerTextBox" LostFocus="IntegerTextBox_OnLostFocus"
-                                                             PreviewTextInput="IntegerTextBox_PreviewTextInput"
-                                                             Text="{Binding Quantity, Mode=Default}" />
-                                                </DataTemplate>
-                                            </GridViewColumn.CellTemplate>
-                                        </GridViewColumn>
-                                        <GridViewColumn Header="Thành Tiền" Width="100" DisplayMemberBinding="{Binding Price}" />
-                                    </GridView>
-                                </ListView.View>
-                            </ListView>
-                        </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <Label Content="Danh sách sản phẩm" Foreground="Azure" Margin="15,0,0,0"/>
+                        <ListView Name="ProductListView" ItemsSource="{Binding Products}" Margin="20,0,0,0">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Foreground" Value="White" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
+                                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}"/>
+                                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}"/>
+                                    <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Quantity}" />
+                                    <GridViewColumn Header="Price" Width="100" DisplayMemberBinding="{Binding UnitPrice}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Label Content="Danh sách giỏ hàng" Foreground="Azure"/>
+                        <ListView Name="CartListView">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Foreground" Value="White" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
+                                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding ProductName}" />
+                                    <GridViewColumn Header="Quantity" Width="100">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox Name="IntegerTextBox" LostFocus="IntegerTextBox_OnLostFocus"
+                                                         PreviewTextInput="IntegerTextBox_PreviewTextInput"
+                                                         Text="{Binding Quantity, Mode=Default}" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Thành Tiền" Width="100" DisplayMemberBinding="{Binding Price}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="AddToCart" Margin="10" Width="80" Content="Add To Cart" Click="AddToCart_Click"/>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="100,0,0,5">
+                        <Button Width="100" Name="btnPayment" HorizontalAlignment="Left" Content="Payment"
+                                Click="Payment_Click" />
+                        <Label Name="lbTotalPrice" Width="200" Foreground="Azure"/>
                     </StackPanel>
                 </Grid>
             </Grid>

@@ -17,9 +17,10 @@
     </ItemGroup>
 
 
+
     <ItemGroup>
-      <Folder Include="ViewModel\" />
-      <Folder Include="View\" />
+      <ProjectReference Include="..\BussinessObject\BussinessObject.csproj" />
     </ItemGroup>
+
 
 </Project>

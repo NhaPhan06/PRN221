@@ -5,5 +5,7 @@ namespace DataAccess.IRepository;
 
 public interface IOrderDetailRepo  : IGeneric<OrderDetail>
 {
+    List<OrderDetail> getOrderDetails(Guid id);
+    
     
 }

@@ -121,20 +121,20 @@
                             Kind="Pizza"
                             Width="70"
                             Height="70"
-                            Foreground="Azure" />
-                        <Label Foreground="Azure" MouseDoubleClick="ShoppingWindow_Click" HorizontalAlignment="Center">Pizza Store</Label>
+                            Foreground="Azure" HorizontalAlignment="Center"/>
+                        <Button Foreground="Azure" Click="ShoppingWindow_Click" HorizontalAlignment="Center">Pizza Store</Button>
                     </StackPanel>
                     <StackPanel
                         Grid.Column="1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Orientation="Vertical">
+                        Orientation="Vertical" >
                         <materialDesign:PackIcon
                             Kind="CartVariant"
                             Width="70"
                             Height="70"
-                            Foreground="Azure" />
-                        <Label Foreground="Azure" MouseDoubleClick="OrderWindow_Click" HorizontalAlignment="Center">History</Label>
+                            Foreground="Azure" HorizontalAlignment="Center"/>
+                        <Button Foreground="Azure" Click="OrderWindow_Click" HorizontalAlignment="Center">History</Button>
                     </StackPanel>
                 </Grid>
             </Grid>

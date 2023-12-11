@@ -19,4 +19,14 @@ public class CustomerService : ICustomerService
         customer.Status = "ACTIVE";
         _unitOfWork.Customer.Add(customer);
     }
+
+    public async Task<Customer> Login(string email, string pass)
+    {
+        var acc = _unitOfWork.Customer.Login(email, pass);
+        if (acc != null)
+        {
+            return acc;
+        }
+        return null;
+    }
 }
