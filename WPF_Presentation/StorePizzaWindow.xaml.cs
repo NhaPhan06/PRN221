@@ -95,7 +95,7 @@ public partial class StorePizzaWindow : Window
     private async void Payment_Click(object sender, RoutedEventArgs e)
     {
         List<Product> p = await _productService.GetProduct();
-        _orderService.OrderPizza(_customer.Id, Carts);
+        _orderService.OrderPizza(_customer, Carts);
         Carts.Clear();
         lbTotalPrice.Content = "";
         Window_Loaded(sender, e);

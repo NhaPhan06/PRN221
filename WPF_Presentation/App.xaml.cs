@@ -52,7 +52,6 @@ namespace WPF_Presentation
             service.AddTransient<IOrderDetailRepo, OrderDetailRepo>();
             service.AddTransient<IProductRepo, ProductrRepo>();
             service.AddSingleton<CustomerWindow>();
-            service.AddSingleton<MainWindow>();
             service.AddSingleton<StorePizzaWindow>();
             service.AddSingleton<LoginWindow>();
             

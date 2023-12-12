@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -9,31 +8,31 @@ using DataAccess.DataAccess;
 
 namespace WPF_Presentation;
 
-public partial class OrderHistoryWindow : Window
+public partial class OrderManagerWindow : Window
 {
     
     ICustomerService _customerService;
     IOrderService _orderService;
     IProductService _productService;
     IOrderDetailService _orderDetailService;
-    private Customer _customer;
     
-    public OrderHistoryWindow(Customer customer, ICustomerService customerService, IProductService productService, IOrderService orderService, IOrderDetailService orderDetailService)
+    
+    public OrderManagerWindow(ICustomerService customerService, IProductService productService, IOrderService orderService, IOrderDetailService orderDetailService)
     {
         _orderDetailService = orderDetailService;
         _orderService = orderService;
         _productService = productService;
         _customerService = customerService;
-        _customer = customer;
         InitializeComponent();
     }
-    
+
     private async void Window_Loaded(object sender, RoutedEventArgs e)
     {
-        var list = await _orderService.GetOrderOfCustomer(_customer.Id);
+        var list = await _orderService.GetAllOrder();
         OrderListView.ItemsSource = list;
     }
-
+    
+    
     [DllImport("user32.dll")]
     public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
     private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -63,13 +62,6 @@ public partial class OrderHistoryWindow : Window
             this.WindowState = WindowState.Maximized;
         else this.WindowState = WindowState.Normal;
     }
-    
-    private void BtnBack_Click(object sender, RoutedEventArgs e)
-    {
-        CustomerWindow window = new CustomerWindow(_customer, _customerService, _productService, _orderService, _orderDetailService);
-        window.Show();
-        Close();
-    }
 
     private async void btnDetail_Click(object sender, RoutedEventArgs e)
     {
@@ -87,16 +79,8 @@ public partial class OrderHistoryWindow : Window
         }
     }
 
-
-
-    private void btnDelete_Click(object sender, RoutedEventArgs e)
+    private void btnCancel_Click(object sender, RoutedEventArgs e)
     {
-        Order o = OrderListView.SelectedItem as Order;
-        if (o.Status == "Prepare")
-        {
-            _orderService.CancleOrder(o.Id);
-            DetailListView.ItemsSource = null;
-        }
-        Window_Loaded(sender,e);
+        throw new NotImplementedException();
     }
 }

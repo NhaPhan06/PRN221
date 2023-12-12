@@ -26,13 +26,15 @@ public class OrderService : IOrderService
         return _unitOfWork.Order.GetAllOrderOfCustomer(customerId);
     }
 
-    public async Task OrderPizza(Guid customer, List<Cart> carts)
+    public async Task OrderPizza(Customer customer, List<Cart> carts)
     {
+        
         List<Product> list = _unitOfWork.Product.GetAll().ToList();
         Order order = new Order();
         order.Id = Guid.NewGuid();
         order.OrderDate = DateTime.Now;
-        order.CustomerId = customer;
+        order.CustomerId = customer.Id;
+        order.ShipAddress = customer.Address;
         order.Status = "Prepare";
         _unitOfWork.Order.Add(order);
 
