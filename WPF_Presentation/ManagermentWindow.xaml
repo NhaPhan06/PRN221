@@ -36,6 +36,7 @@
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
+                        <ColumnDefinition Width="50" />
                         <ColumnDefinition Width="25" />
                         <ColumnDefinition Width="25" />
                         <ColumnDefinition Width="5" />
@@ -47,6 +48,25 @@
                                Grid.Column="0"
                                VerticalAlignment="Center"
                                Margin="10,0,0,0" />
+                    <Button x:Name="btnBack"
+                            BorderThickness="0"
+                            Content= "LOGOUT"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="BtnBack_OnClick">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="50" Height="18"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                     <Button x:Name="btnMinimize"
                             BorderThickness="0"
                             Content="-"
@@ -54,7 +74,7 @@
                             FontSize="16"
                             FontFamily="Montserrat"
                             Cursor="Hand"
-                            Grid.Column="1"
+                            Grid.Column="2"
                             Click="BtnMinimize_OnClick">
                         <Button.Style>
                             <Style TargetType="Button">
@@ -84,7 +104,7 @@
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
-                            Grid.Column="2"
+                            Grid.Column="3"
                             Click="BtnClose_OnClick">
                         <Button.Style>
                             <Style TargetType="Button">
@@ -121,19 +141,19 @@
                             Kind="Pizza"
                             Width="70"
                             Height="70"
-                            Foreground="Azure" HorizontalAlignment="Center"/>
+                            Foreground="Azure" HorizontalAlignment="Center" />
                         <Button Foreground="Azure" Click="ProductWindow_Click" HorizontalAlignment="Center">Product Manage</Button>
                     </StackPanel>
                     <StackPanel
                         Grid.Column="1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Orientation="Vertical" >
+                        Orientation="Vertical">
                         <materialDesign:PackIcon
                             Kind="CartVariant"
                             Width="70"
                             Height="70"
-                            Foreground="Azure" HorizontalAlignment="Center"/>
+                            Foreground="Azure" HorizontalAlignment="Center" />
                         <Button Foreground="Azure" Click="OrderWindow_Click" HorizontalAlignment="Center">Order</Button>
                     </StackPanel>
                 </Grid>

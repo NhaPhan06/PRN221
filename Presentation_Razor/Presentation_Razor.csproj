@@ -1,173 +1,1153 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BussinessObject\BussinessObject.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BussinessObject\BussinessObject.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\51689\site\css\" />
-    <Folder Include="Pages\51689\site\js\" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.25"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.25">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.25" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.25">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="wwwroot\bat\phpmailer\class.phpmailer.php"/>
+        <None Include="wwwroot\bat\phpmailer\class.pop3.php"/>
+        <None Include="wwwroot\bat\phpmailer\class.smtp.php"/>
+        <None Include="wwwroot\bat\phpmailer\PHPMailerAutoload.php"/>
+        <None Include="wwwroot\bat\rd-mailform.php"/>
+        <None Include="wwwroot\bat\rd-mailform.tpl"/>
+        <None Include="wwwroot\bat\rd-search.php"/>
+        <None Include="wwwroot\bat\reCaptcha.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\autoload.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\ReCaptcha.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\RequestMethod.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\RequestMethod\Curl.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\RequestMethod\CurlPost.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\RequestMethod\Post.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\RequestMethod\Socket.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\RequestMethod\SocketPost.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\RequestParameters.php"/>
+        <None Include="wwwroot\bat\ReCaptcha\Response.php"/>
+        <None Include="wwwroot\css\fonts.css"/>
+        <None Include="wwwroot\css\style.css"/>
+        <None Include="wwwroot\fonts\FernandoForero-Asfalto.eot"/>
+        <None Include="wwwroot\fonts\FernandoForero-Asfalto.otf"/>
+        <None Include="wwwroot\fonts\FernandoForero-Asfalto.svg"/>
+        <None Include="wwwroot\fonts\FernandoForero-Asfalto.ttf"/>
+        <None Include="wwwroot\fonts\FernandoForero-Asfalto.woff"/>
+        <None Include="wwwroot\fonts\FernandoForero-Asfalto.woff2"/>
+        <None Include="wwwroot\fonts\fl-bigmug-line.eot"/>
+        <None Include="wwwroot\fonts\fl-bigmug-line.svg"/>
+        <None Include="wwwroot\fonts\fl-bigmug-line.ttf"/>
+        <None Include="wwwroot\fonts\fl-bigmug-line.woff"/>
+        <None Include="wwwroot\fonts\fontawesome-webfont.eot"/>
+        <None Include="wwwroot\fonts\fontawesome-webfont.svg"/>
+        <None Include="wwwroot\fonts\fontawesome-webfont.ttf"/>
+        <None Include="wwwroot\fonts\fontawesome-webfont.woff"/>
+        <None Include="wwwroot\fonts\fontawesome-webfont.woff2"/>
+        <None Include="wwwroot\fonts\FontAwesome.otf"/>
+        <None Include="wwwroot\fonts\lg.eot"/>
+        <None Include="wwwroot\fonts\lg.svg"/>
+        <None Include="wwwroot\fonts\lg.ttf"/>
+        <None Include="wwwroot\fonts\lg.woff"/>
+        <None Include="wwwroot\fonts\Linearicons.eot"/>
+        <None Include="wwwroot\fonts\Linearicons.svg"/>
+        <None Include="wwwroot\fonts\Linearicons.ttf"/>
+        <None Include="wwwroot\fonts\Linearicons.woff"/>
+        <None Include="wwwroot\fonts\materialdesignicons-webfont.eot"/>
+        <None Include="wwwroot\fonts\materialdesignicons-webfont.svg"/>
+        <None Include="wwwroot\fonts\materialdesignicons-webfont.ttf"/>
+        <None Include="wwwroot\fonts\materialdesignicons-webfont.woff"/>
+        <None Include="wwwroot\fonts\materialdesignicons-webfont.woff2"/>
+        <None Include="wwwroot\images\about-1-835x418.jpg"/>
+        <None Include="wwwroot\images\ajax-loader.gif"/>
+        <None Include="wwwroot\images\banner\background-03-1920x310.jpg"/>
+        <None Include="wwwroot\images\banner\background-03-3840x620.jpg"/>
+        <None Include="wwwroot\images\banner\background-04-1920x60.jpg"/>
+        <None Include="wwwroot\images\banner\background-04-3840x120.jpg"/>
+        <None Include="wwwroot\images\banner\foreground-03-1600x310.png"/>
+        <None Include="wwwroot\images\banner\foreground-03-3200x620.png"/>
+        <None Include="wwwroot\images\banner\foreground-04-1600x60.png"/>
+        <None Include="wwwroot\images\banner\foreground-04-3200x120.png"/>
+        <None Include="wwwroot\images\bg-1.jpg"/>
+        <None Include="wwwroot\images\bg-3.jpg"/>
+        <None Include="wwwroot\images\bg-4.jpg"/>
+        <None Include="wwwroot\images\favicon.ico"/>
+        <None Include="wwwroot\images\gallery-1-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\gallery-1-310x585.jpg"/>
+        <None Include="wwwroot\images\gallery-1-310x587.jpg"/>
+        <None Include="wwwroot\images\gallery-2-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\gallery-2-631x587.jpg"/>
+        <None Include="wwwroot\images\gallery-3-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\gallery-3-311x289.jpg"/>
+        <None Include="wwwroot\images\gallery-4-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\gallery-4-631x289.jpg"/>
+        <None Include="wwwroot\images\gallery-5-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\gallery-5-311x289.jpg"/>
+        <None Include="wwwroot\images\gallery-6-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\gallery-6-311x289.jpg"/>
+        <None Include="wwwroot\images\gallery-7-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\gallery-7-311x289.jpg"/>
+        <None Include="wwwroot\images\gallery-7-311x289h.jpg"/>
+        <None Include="wwwroot\images\gmap_marker-2.png"/>
+        <None Include="wwwroot\images\gmap_marker-2_active.png"/>
+        <None Include="wwwroot\images\gmap_marker.png"/>
+        <None Include="wwwroot\images\gmap_marker_active.png"/>
+        <None Include="wwwroot\images\ie8-panel\warning_bar_0000_us.jpg"/>
+        <None Include="wwwroot\images\isotope-loader.png"/>
+        <None Include="wwwroot\images\like-icon-58x25.png"/>
+        <None Include="wwwroot\images\loading.gif"/>
+        <None Include="wwwroot\images\logo-198x66.png"/>
+        <None Include="wwwroot\images\logo-inverse-198x66.png"/>
+        <None Include="wwwroot\images\menu-1-370x278.jpg"/>
+        <None Include="wwwroot\images\menu-2-370x278.jpg"/>
+        <None Include="wwwroot\images\menu-3-370x278.jpg"/>
+        <None Include="wwwroot\images\menu-4-370x278.jpg"/>
+        <None Include="wwwroot\images\menu-5-370x278.jpg"/>
+        <None Include="wwwroot\images\menu-6-370x278.jpg"/>
+        <None Include="wwwroot\images\our_history-1110x710.jpg"/>
+        <None Include="wwwroot\images\preloader.gif"/>
+        <None Include="wwwroot\images\preloader.png"/>
+        <None Include="wwwroot\images\product-1-161x162.png"/>
+        <None Include="wwwroot\images\product-2-161x162.png"/>
+        <None Include="wwwroot\images\product-3-161x162.png"/>
+        <None Include="wwwroot\images\product-4-161x162.png"/>
+        <None Include="wwwroot\images\project-1-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\project-1-195x164.jpg"/>
+        <None Include="wwwroot\images\project-2-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\project-2-195x164.jpg"/>
+        <None Include="wwwroot\images\project-3-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\project-3-195x164.jpg"/>
+        <None Include="wwwroot\images\project-4-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\project-4-195x164.jpg"/>
+        <None Include="wwwroot\images\project-5-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\project-5-195x164.jpg"/>
+        <None Include="wwwroot\images\project-6-1200x800-original.jpg"/>
+        <None Include="wwwroot\images\project-6-195x164.jpg"/>
+        <None Include="wwwroot\images\slide-1-1920x753.jpg"/>
+        <None Include="wwwroot\images\slide-2-1920x753.jpg"/>
+        <None Include="wwwroot\images\team-01-270x236.jpg"/>
+        <None Include="wwwroot\images\team-02-270x236.jpg"/>
+        <None Include="wwwroot\images\team-03-270x236.jpg"/>
+        <None Include="wwwroot\images\team-04-270x236.jpg"/>
+        <None Include="wwwroot\images\team-5-83x83.jpg"/>
+        <None Include="wwwroot\images\team-6-83x83.jpg"/>
+        <None Include="wwwroot\images\team-7-83x83.jpg"/>
+        <None Include="wwwroot\images\team-8-83x83.jpg"/>
+        <None Include="wwwroot\images\user-6-115x115.jpg"/>
+        <None Include="wwwroot\images\user-7-115x115.jpg"/>
+        <None Include="wwwroot\images\user-8-115x115.jpg"/>
+        <None Include="wwwroot\images\user-9-115x115.jpg"/>
+        <None Include="wwwroot\images\video-play.png"/>
+        <None Include="wwwroot\images\vimeo-play.png"/>
+        <None Include="wwwroot\images\wp-say-669x447.jpg"/>
+        <None Include="wwwroot\images\youtube-play.png"/>
+        <None Include="wwwroot\images\_blank.png"/>
+        <None Include="wwwroot\js\core.min.js"/>
+        <None Include="wwwroot\js\html5shiv.min.js"/>
+        <None Include="wwwroot\js\pointer-events.min.js"/>
+        <None Include="wwwroot\js\script.js"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\bat\phpmailer\class.phpmailer.php" />
-    <None Include="wwwroot\bat\phpmailer\class.pop3.php" />
-    <None Include="wwwroot\bat\phpmailer\class.smtp.php" />
-    <None Include="wwwroot\bat\phpmailer\PHPMailerAutoload.php" />
-    <None Include="wwwroot\bat\rd-mailform.php" />
-    <None Include="wwwroot\bat\rd-mailform.tpl" />
-    <None Include="wwwroot\bat\rd-search.php" />
-    <None Include="wwwroot\bat\reCaptcha.php" />
-    <None Include="wwwroot\bat\ReCaptcha\autoload.php" />
-    <None Include="wwwroot\bat\ReCaptcha\ReCaptcha.php" />
-    <None Include="wwwroot\bat\ReCaptcha\RequestMethod.php" />
-    <None Include="wwwroot\bat\ReCaptcha\RequestMethod\Curl.php" />
-    <None Include="wwwroot\bat\ReCaptcha\RequestMethod\CurlPost.php" />
-    <None Include="wwwroot\bat\ReCaptcha\RequestMethod\Post.php" />
-    <None Include="wwwroot\bat\ReCaptcha\RequestMethod\Socket.php" />
-    <None Include="wwwroot\bat\ReCaptcha\RequestMethod\SocketPost.php" />
-    <None Include="wwwroot\bat\ReCaptcha\RequestParameters.php" />
-    <None Include="wwwroot\bat\ReCaptcha\Response.php" />
-    <None Include="wwwroot\css\bootstrap.css" />
-    <None Include="wwwroot\css\fonts.css" />
-    <None Include="wwwroot\css\style.css" />
-    <None Include="wwwroot\fonts\FernandoForero-Asfalto.eot" />
-    <None Include="wwwroot\fonts\FernandoForero-Asfalto.otf" />
-    <None Include="wwwroot\fonts\FernandoForero-Asfalto.svg" />
-    <None Include="wwwroot\fonts\FernandoForero-Asfalto.ttf" />
-    <None Include="wwwroot\fonts\FernandoForero-Asfalto.woff" />
-    <None Include="wwwroot\fonts\FernandoForero-Asfalto.woff2" />
-    <None Include="wwwroot\fonts\fl-bigmug-line.eot" />
-    <None Include="wwwroot\fonts\fl-bigmug-line.svg" />
-    <None Include="wwwroot\fonts\fl-bigmug-line.ttf" />
-    <None Include="wwwroot\fonts\fl-bigmug-line.woff" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.eot" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.ttf" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.woff" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
-    <None Include="wwwroot\fonts\FontAwesome.otf" />
-    <None Include="wwwroot\fonts\lg.eot" />
-    <None Include="wwwroot\fonts\lg.svg" />
-    <None Include="wwwroot\fonts\lg.ttf" />
-    <None Include="wwwroot\fonts\lg.woff" />
-    <None Include="wwwroot\fonts\Linearicons.eot" />
-    <None Include="wwwroot\fonts\Linearicons.svg" />
-    <None Include="wwwroot\fonts\Linearicons.ttf" />
-    <None Include="wwwroot\fonts\Linearicons.woff" />
-    <None Include="wwwroot\fonts\materialdesignicons-webfont.eot" />
-    <None Include="wwwroot\fonts\materialdesignicons-webfont.svg" />
-    <None Include="wwwroot\fonts\materialdesignicons-webfont.ttf" />
-    <None Include="wwwroot\fonts\materialdesignicons-webfont.woff" />
-    <None Include="wwwroot\fonts\materialdesignicons-webfont.woff2" />
-    <None Include="wwwroot\images\about-1-835x418.jpg" />
-    <None Include="wwwroot\images\ajax-loader.gif" />
-    <None Include="wwwroot\images\banner\background-03-1920x310.jpg" />
-    <None Include="wwwroot\images\banner\background-03-3840x620.jpg" />
-    <None Include="wwwroot\images\banner\background-04-1920x60.jpg" />
-    <None Include="wwwroot\images\banner\background-04-3840x120.jpg" />
-    <None Include="wwwroot\images\banner\foreground-03-1600x310.png" />
-    <None Include="wwwroot\images\banner\foreground-03-3200x620.png" />
-    <None Include="wwwroot\images\banner\foreground-04-1600x60.png" />
-    <None Include="wwwroot\images\banner\foreground-04-3200x120.png" />
-    <None Include="wwwroot\images\bg-1.jpg" />
-    <None Include="wwwroot\images\bg-3.jpg" />
-    <None Include="wwwroot\images\bg-4.jpg" />
-    <None Include="wwwroot\images\favicon.ico" />
-    <None Include="wwwroot\images\gallery-1-1200x800-original.jpg" />
-    <None Include="wwwroot\images\gallery-1-310x585.jpg" />
-    <None Include="wwwroot\images\gallery-1-310x587.jpg" />
-    <None Include="wwwroot\images\gallery-2-1200x800-original.jpg" />
-    <None Include="wwwroot\images\gallery-2-631x587.jpg" />
-    <None Include="wwwroot\images\gallery-3-1200x800-original.jpg" />
-    <None Include="wwwroot\images\gallery-3-311x289.jpg" />
-    <None Include="wwwroot\images\gallery-4-1200x800-original.jpg" />
-    <None Include="wwwroot\images\gallery-4-631x289.jpg" />
-    <None Include="wwwroot\images\gallery-5-1200x800-original.jpg" />
-    <None Include="wwwroot\images\gallery-5-311x289.jpg" />
-    <None Include="wwwroot\images\gallery-6-1200x800-original.jpg" />
-    <None Include="wwwroot\images\gallery-6-311x289.jpg" />
-    <None Include="wwwroot\images\gallery-7-1200x800-original.jpg" />
-    <None Include="wwwroot\images\gallery-7-311x289.jpg" />
-    <None Include="wwwroot\images\gallery-7-311x289h.jpg" />
-    <None Include="wwwroot\images\gmap_marker-2.png" />
-    <None Include="wwwroot\images\gmap_marker-2_active.png" />
-    <None Include="wwwroot\images\gmap_marker.png" />
-    <None Include="wwwroot\images\gmap_marker_active.png" />
-    <None Include="wwwroot\images\ie8-panel\warning_bar_0000_us.jpg" />
-    <None Include="wwwroot\images\isotope-loader.png" />
-    <None Include="wwwroot\images\like-icon-58x25.png" />
-    <None Include="wwwroot\images\loading.gif" />
-    <None Include="wwwroot\images\logo-198x66.png" />
-    <None Include="wwwroot\images\logo-inverse-198x66.png" />
-    <None Include="wwwroot\images\menu-1-370x278.jpg" />
-    <None Include="wwwroot\images\menu-2-370x278.jpg" />
-    <None Include="wwwroot\images\menu-3-370x278.jpg" />
-    <None Include="wwwroot\images\menu-4-370x278.jpg" />
-    <None Include="wwwroot\images\menu-5-370x278.jpg" />
-    <None Include="wwwroot\images\menu-6-370x278.jpg" />
-    <None Include="wwwroot\images\our_history-1110x710.jpg" />
-    <None Include="wwwroot\images\preloader.gif" />
-    <None Include="wwwroot\images\preloader.png" />
-    <None Include="wwwroot\images\product-1-161x162.png" />
-    <None Include="wwwroot\images\product-2-161x162.png" />
-    <None Include="wwwroot\images\product-3-161x162.png" />
-    <None Include="wwwroot\images\product-4-161x162.png" />
-    <None Include="wwwroot\images\project-1-1200x800-original.jpg" />
-    <None Include="wwwroot\images\project-1-195x164.jpg" />
-    <None Include="wwwroot\images\project-2-1200x800-original.jpg" />
-    <None Include="wwwroot\images\project-2-195x164.jpg" />
-    <None Include="wwwroot\images\project-3-1200x800-original.jpg" />
-    <None Include="wwwroot\images\project-3-195x164.jpg" />
-    <None Include="wwwroot\images\project-4-1200x800-original.jpg" />
-    <None Include="wwwroot\images\project-4-195x164.jpg" />
-    <None Include="wwwroot\images\project-5-1200x800-original.jpg" />
-    <None Include="wwwroot\images\project-5-195x164.jpg" />
-    <None Include="wwwroot\images\project-6-1200x800-original.jpg" />
-    <None Include="wwwroot\images\project-6-195x164.jpg" />
-    <None Include="wwwroot\images\slide-1-1920x753.jpg" />
-    <None Include="wwwroot\images\slide-2-1920x753.jpg" />
-    <None Include="wwwroot\images\team-01-270x236.jpg" />
-    <None Include="wwwroot\images\team-02-270x236.jpg" />
-    <None Include="wwwroot\images\team-03-270x236.jpg" />
-    <None Include="wwwroot\images\team-04-270x236.jpg" />
-    <None Include="wwwroot\images\team-5-83x83.jpg" />
-    <None Include="wwwroot\images\team-6-83x83.jpg" />
-    <None Include="wwwroot\images\team-7-83x83.jpg" />
-    <None Include="wwwroot\images\team-8-83x83.jpg" />
-    <None Include="wwwroot\images\user-6-115x115.jpg" />
-    <None Include="wwwroot\images\user-7-115x115.jpg" />
-    <None Include="wwwroot\images\user-8-115x115.jpg" />
-    <None Include="wwwroot\images\user-9-115x115.jpg" />
-    <None Include="wwwroot\images\video-play.png" />
-    <None Include="wwwroot\images\vimeo-play.png" />
-    <None Include="wwwroot\images\wp-say-669x447.jpg" />
-    <None Include="wwwroot\images\youtube-play.png" />
-    <None Include="wwwroot\images\_blank.png" />
-    <None Include="wwwroot\js\core.min.js" />
-    <None Include="wwwroot\js\html5shiv.min.js" />
-    <None Include="wwwroot\js\pointer-events.min.js" />
-    <None Include="wwwroot\js\script.js" />
-  </ItemGroup>
+    <ItemGroup>
+        <_ContentIncludedByDefault Remove="Pages\51689\site\bat\rd-mailform.config.json"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\51689\site\bat\rd-mailform.config.json" />
-  </ItemGroup>
+    <ItemGroup>
+      <Content Update="Pages\51689\site\bat\phpmailer\class.phpmailer.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\phpmailer\class.pop3.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\phpmailer\class.smtp.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\phpmailer\PHPMailerAutoload.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\RequestMethod\Curl.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\RequestMethod\CurlPost.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\RequestMethod\Post.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\RequestMethod\Socket.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\RequestMethod\SocketPost.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\autoload.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\ReCaptcha.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\RequestMethod.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\RequestParameters.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\ReCaptcha\Response.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\rd-mailform.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\rd-mailform.tpl">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\rd-search.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\bat\reCaptcha.php">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\css\bootstrap.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\css\fonts.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\css\style.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\css\login.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\css\bootstrapLogin.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\FernandoForero-Asfalto.eot">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\FernandoForero-Asfalto.otf">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\FernandoForero-Asfalto.svg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\FernandoForero-Asfalto.ttf">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\FernandoForero-Asfalto.woff">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\FernandoForero-Asfalto.woff2">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\fl-bigmug-line.eot">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\fl-bigmug-line.svg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\fl-bigmug-line.ttf">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\fl-bigmug-line.woff">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\fontawesome-webfont.eot">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\fontawesome-webfont.svg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\fontawesome-webfont.ttf">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\fontawesome-webfont.woff">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\fontawesome-webfont.woff2">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\FontAwesome.otf">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\lg.eot">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\lg.svg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\lg.ttf">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\lg.woff">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\Linearicons.eot">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\Linearicons.svg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\Linearicons.ttf">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\Linearicons.woff">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\materialdesignicons-webfont.eot">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\materialdesignicons-webfont.svg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\materialdesignicons-webfont.ttf">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\materialdesignicons-webfont.woff">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\fonts\materialdesignicons-webfont.woff2">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\banner\background-03-1920x310.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\banner\background-03-3840x620.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\banner\background-04-1920x60.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\banner\background-04-3840x120.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\banner\foreground-03-1600x310.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\banner\foreground-03-3200x620.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\banner\foreground-04-1600x60.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\banner\foreground-04-3200x120.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\ie8-panel\warning_bar_0000_us.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\about-1-835x418.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\ajax-loader.gif">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\bg-1.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\bg-3.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\bg-4.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\favicon.ico">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-1-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-1-310x585.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-1-310x587.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-2-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-2-631x587.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-3-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-3-311x289.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-4-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-4-631x289.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-5-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-5-311x289.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-6-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-6-311x289.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-7-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-7-311x289.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gallery-7-311x289h.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gmap_marker-2.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gmap_marker-2_active.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gmap_marker.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\gmap_marker_active.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\isotope-loader.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\like-icon-58x25.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\loading.gif">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\logo-198x66.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\logo-inverse-198x66.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\menu-1-370x278.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\menu-2-370x278.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\menu-3-370x278.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\menu-4-370x278.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\menu-5-370x278.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\menu-6-370x278.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\our_history-1110x710.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\preloader.gif">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\preloader.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\product-1-161x162.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\product-2-161x162.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\product-3-161x162.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\product-4-161x162.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-1-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-1-195x164.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-2-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-2-195x164.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-3-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-3-195x164.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-4-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-4-195x164.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-5-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-5-195x164.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-6-1200x800-original.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\project-6-195x164.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\slide-1-1920x753.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\slide-2-1920x753.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\team-01-270x236.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\team-02-270x236.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\team-03-270x236.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\team-04-270x236.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\team-5-83x83.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\team-6-83x83.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\team-7-83x83.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\team-8-83x83.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\user-6-115x115.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\user-7-115x115.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\user-8-115x115.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\user-9-115x115.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\video-play.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\vimeo-play.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\wp-say-669x447.jpg">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\youtube-play.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\images\_blank.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\js\core.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\js\html5shiv.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\js\pointer-events.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\js\script.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-grid.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-grid.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-grid.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.rtl.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-grid.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-grid.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-grid.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-reboot.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-reboot.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-reboot.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-reboot.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-reboot.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-reboot.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-utilities.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-utilities.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-utilities.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-utilities.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-utilities.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap-utilities.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.rtl.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.rtl.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.rtl.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.rtl.css</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.rtl.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.rtl.min.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.bundle.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.bundle.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.bundle.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.bundle.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.bundle.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.bundle.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.bundle.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.bundle.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.esm.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.esm.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.esm.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.esm.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.esm.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.esm.min.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.esm.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.esm.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.esm.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.esm.min.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.min.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>bootstrap.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\dist\js\bootstrap.min.js.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\bootstrap\LICENSE">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>jquery.validate.unobtrusive.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation-unobtrusive\LICENSE.txt">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation\dist\additional-methods.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation\dist\additional-methods.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>additional-methods.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation\dist\additional-methods.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation\dist\jquery.validate.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation\dist\jquery.validate.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>jquery.validate.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation\dist\jquery.validate.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery-validation\LICENSE.md">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery\dist\jquery.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery\dist\jquery.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>jquery.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery\dist\jquery.min.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>jquery.min.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery\dist\jquery.min.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery\dist\jquery.min.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <DependentUpon>jquery.min.js</DependentUpon>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery\dist\jquery.min.map">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Pages\51689\site\lib\jquery\LICENSE.txt">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
 
 </Project>

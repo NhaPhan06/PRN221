@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:WPF_Presentation"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
@@ -39,8 +38,8 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="90" />
                 </Grid.RowDefinitions>
                 <StackPanel x:Name="pnlControlBar"
                             Grid.Row="0"
@@ -54,34 +53,35 @@
                             Style="{StaticResource controlButton}"
                             Tag="{StaticResource color4}"
                             Click="btnClose_Click">
-                        <fa:IconImage Icon="Xmark" Foreground="Beige" Style="{StaticResource controlButtonIcon}"/>
+                        <fa:IconImage Icon="Xmark" Foreground="Beige" Style="{StaticResource controlButtonIcon}" />
                     </Button>
                     <Button x:Name="btnMaximize"
                             Style="{StaticResource controlButton}"
                             Tag="{StaticResource color6}"
                             Click="btnMaximize_Click">
-                        <fa:IconImage Icon="Square" Foreground="Beige" Style="{StaticResource controlButtonIcon}"/>
+                        <fa:IconImage Icon="Square" Foreground="Beige" Style="{StaticResource controlButtonIcon}" />
                     </Button>
                     <Button x:Name="btnMinimize"
                             Style="{StaticResource controlButton}"
                             Tag="{StaticResource color8}"
                             Click="btnMinimize_Click">
-                        <fa:IconImage Icon="WindowMinimize" Foreground="Beige" Style="{StaticResource controlButtonIcon}"/>
+                        <fa:IconImage Icon="WindowMinimize" Foreground="Beige"
+                                      Style="{StaticResource controlButtonIcon}" />
                     </Button>
                     <Button x:Name="btnBack"
                             Style="{StaticResource controlButton}"
                             Tag="{StaticResource color8}"
                             Click="BtnBack_Click">
-                        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Beige"/>
+                        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Beige" />
                     </Button>
                 </StackPanel>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="400"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical" Grid.Column="0">
-                        <Label Content="Danh sách sản phẩm" Foreground="Azure" Margin="15,0,0,0"/>
+                        <Label Content="Danh sách sản phẩm" Foreground="Azure" Margin="15,0,0,0" />
                         <ListView Name="ProductListView" ItemsSource="{Binding Products}" Margin="20,0,0,0">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
@@ -90,16 +90,18 @@
                             </ListView.ItemContainerStyle>
                             <ListView.View>
                                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
-                                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}"/>
-                                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}"/>
-                                    <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Quantity}" />
-                                    <GridViewColumn Header="Price" Width="100" DisplayMemberBinding="{Binding UnitPrice}" />
+                                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Quantity" Width="60"
+                                                    DisplayMemberBinding="{Binding Quantity}" />
+                                    <GridViewColumn Header="Price" Width="100"
+                                                    DisplayMemberBinding="{Binding UnitPrice}" />
                                 </GridView>
                             </ListView.View>
                         </ListView>
                     </StackPanel>
                     <StackPanel Grid.Column="1">
-                        <Label Content="Danh sách giỏ hàng" Foreground="Azure"/>
+                        <Label Content="Danh sách giỏ hàng" Foreground="Azure" />
                         <ListView Name="CartListView">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
@@ -109,7 +111,8 @@
                             <ListView.View>
                                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
                                     <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
-                                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding ProductName}" />
+                                    <GridViewColumn Header="Name" Width="100"
+                                                    DisplayMemberBinding="{Binding ProductName}" />
                                     <GridViewColumn Header="Quantity" Width="100">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -119,7 +122,8 @@
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Thành Tiền" Width="100" DisplayMemberBinding="{Binding Price}" />
+                                    <GridViewColumn Header="Thành Tiền" Width="100"
+                                                    DisplayMemberBinding="{Binding Price}" />
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -127,14 +131,15 @@
                 </Grid>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" x:Name="AddToCart" Margin="10" Width="80" Content="Add To Cart" Click="AddToCart_Click"/>
+                    <Button Grid.Column="0" x:Name="AddToCart" Margin="10" Width="80" Content="Add To Cart"
+                            Click="AddToCart_Click" />
                     <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="100,0,0,5">
                         <Button Width="100" Name="btnPayment" HorizontalAlignment="Left" Content="Payment"
                                 Click="Payment_Click" />
-                        <Label Name="lbTotalPrice" Width="200" Foreground="Azure"/>
+                        <Label Name="lbTotalPrice" Width="200" Foreground="Azure" />
                     </StackPanel>
                 </Grid>
             </Grid>

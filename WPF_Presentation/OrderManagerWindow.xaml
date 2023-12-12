@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:WPF_Presentation"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
@@ -39,8 +38,8 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="90" />
                 </Grid.RowDefinitions>
                 <StackPanel x:Name="pnlControlBar"
                             Grid.Row="0"
@@ -54,28 +53,35 @@
                             Style="{StaticResource controlButton}"
                             Tag="{StaticResource color4}"
                             Click="btnClose_Click">
-                        <fa:IconImage Icon="Xmark" Foreground="Beige" Style="{StaticResource controlButtonIcon}"/>
+                        <fa:IconImage Icon="Xmark" Foreground="Beige" Style="{StaticResource controlButtonIcon}" />
                     </Button>
                     <Button x:Name="btnMaximize"
                             Style="{StaticResource controlButton}"
                             Tag="{StaticResource color6}"
                             Click="btnMaximize_Click">
-                        <fa:IconImage Icon="Square" Foreground="Beige" Style="{StaticResource controlButtonIcon}"/>
+                        <fa:IconImage Icon="Square" Foreground="Beige" Style="{StaticResource controlButtonIcon}" />
                     </Button>
                     <Button x:Name="btnMinimize"
                             Style="{StaticResource controlButton}"
                             Tag="{StaticResource color8}"
                             Click="btnMinimize_Click">
-                        <fa:IconImage Icon="WindowMinimize" Foreground="Beige" Style="{StaticResource controlButtonIcon}"/>
+                        <fa:IconImage Icon="WindowMinimize" Foreground="Beige"
+                                      Style="{StaticResource controlButtonIcon}" />
+                    </Button>
+                    <Button x:Name="btnBack"
+                            Style="{StaticResource controlButton}"
+                            Tag="{StaticResource color8}"
+                            Click="BtnBack_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Beige" />
                     </Button>
                 </StackPanel>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="500"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="500" />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical" Grid.Column="0">
-                        <Label Content="ORDER HISTORY" Foreground="Azure" Margin="15,0,0,0"/>
+                        <Label Content="ORDER" Foreground="Azure" Margin="15,0,0,0" />
                         <ListView Name="OrderListView" ItemsSource="{Binding Products}" Margin="20,0,0,0">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
@@ -84,17 +90,20 @@
                             </ListView.ItemContainerStyle>
                             <ListView.View>
                                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
-                                    <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding Id}"/>
-                                    <GridViewColumn Header="Customer" Width="100" DisplayMemberBinding="{Binding Customer.Name}"/>
-                                    <GridViewColumn Header="OrderDate" Width="100" DisplayMemberBinding="{Binding OrderDate}" />
-                                    <GridViewColumn Header="ShipAddress" Width="100" DisplayMemberBinding="{Binding Customer.Address}" />
+                                    <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Header="Customer" Width="100"
+                                                    DisplayMemberBinding="{Binding Customer.FullName}" />
+                                    <GridViewColumn Header="OrderDate" Width="100"
+                                                    DisplayMemberBinding="{Binding OrderDate}" />
+                                    <GridViewColumn Header="ShipAddress" Width="100"
+                                                    DisplayMemberBinding="{Binding Customer.Address}" />
                                     <GridViewColumn Header="Status" Width="100" DisplayMemberBinding="{Binding Status}" />
                                 </GridView>
                             </ListView.View>
                         </ListView>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                        <Label Content="DETAIL" Foreground="Azure"/>
+                        <Label Content="DETAIL" Foreground="Azure" />
                         <ListView Name="DetailListView">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
@@ -104,21 +113,24 @@
                             <ListView.View>
                                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
                                     <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
-                                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Product.Name}" />
-                                    <GridViewColumn Header="Thành Tiền" Width="100" DisplayMemberBinding="{Binding UnitPrice}" />
+                                    <GridViewColumn Header="Name" Width="100"
+                                                    DisplayMemberBinding="{Binding Product.Name}" />
+                                    <GridViewColumn Header="Thành Tiền" Width="100"
+                                                    DisplayMemberBinding="{Binding UnitPrice}" />
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <Label Name="lbTotalPrice" Margin="180,0,0,0" Foreground="Azure"/>
+                        <Label Name="lbTotalPrice" Margin="180,0,0,0" Foreground="Azure" />
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" x:Name="Detail" Width="80" Content="Detail" Click="btnDetail_Click"/>
-                    <Button Grid.Column="1" x:Name="Cancel" Width="80" Content="Delete" Click="btnCancel_Click"/>
+                    <Button Grid.Column="0" x:Name="Detail" Width="80" Content="Detail" Click="btnDetail_Click" />
+                    <Button Grid.Column="1" x:Name="Transport" Width="100" Content="Transport"
+                            Click="btntransport_Click" />
                 </Grid>
             </Grid>
         </Border>

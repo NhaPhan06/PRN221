@@ -8,36 +8,34 @@
 <h1>RegisterPage</h1>
 
 <h4>Customer</h4>
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Customer.UserName" class="control-label"></label>
-                <input asp-for="Customer.UserName" class="form-control" />
+                <input asp-for="Customer.UserName" class="form-control"/>
                 <span asp-validation-for="Customer.UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Customer.Password" class="control-label"></label>
-                <input asp-for="Customer.Password" class="form-control" />
+                <input asp-for="Customer.Password" class="form-control"/>
                 <span asp-validation-for="Customer.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Customer.FullName" class="control-label"></label>
-                <input asp-for="Customer.FullName" class="form-control" />
+                <input asp-for="Customer.FullName" class="form-control"/>
                 <span asp-validation-for="Customer.FullName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Customer.Address" class="control-label"></label>
-                <input asp-for="Customer.Address" class="form-control" />
+                <input asp-for="Customer.Address" class="form-control"/>
                 <span asp-validation-for="Customer.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary"/>
             </div>
         </form>
     </div>
 </div>
-
-

@@ -9,4 +9,5 @@ public interface IOrderService
     Task<List<Order>> GetOrderOfCustomer(Guid customerId);
     Task OrderPizza(Customer customer, List<Cart> carts);
     Task CancleOrder(Guid id);
+    Task TransportProduct(Guid id);
 }

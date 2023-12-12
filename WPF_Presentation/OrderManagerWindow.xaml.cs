@@ -10,14 +10,14 @@ namespace WPF_Presentation;
 
 public partial class OrderManagerWindow : Window
 {
-    
-    ICustomerService _customerService;
-    IOrderService _orderService;
-    IProductService _productService;
-    IOrderDetailService _orderDetailService;
-    
-    
-    public OrderManagerWindow(ICustomerService customerService, IProductService productService, IOrderService orderService, IOrderDetailService orderDetailService)
+    private readonly ICustomerService _customerService;
+    private readonly IOrderDetailService _orderDetailService;
+    private readonly IOrderService _orderService;
+    private readonly IProductService _productService;
+
+
+    public OrderManagerWindow(ICustomerService customerService, IProductService productService,
+        IOrderService orderService, IOrderDetailService orderDetailService)
     {
         _orderDetailService = orderDetailService;
         _orderService = orderService;
@@ -31,19 +31,20 @@ public partial class OrderManagerWindow : Window
         var list = await _orderService.GetAllOrder();
         OrderListView.ItemsSource = list;
     }
-    
-    
+
+
     [DllImport("user32.dll")]
     public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
+
     private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-        WindowInteropHelper helper = new WindowInteropHelper(this);
+        var helper = new WindowInteropHelper(this);
         SendMessage(helper.Handle, 161, 2, 0);
     }
 
     private void pnlControlBar_MouseEnter(object sender, MouseEventArgs e)
     {
-        this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+        MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
     }
 
     private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -53,34 +54,40 @@ public partial class OrderManagerWindow : Window
 
     private void btnMinimize_Click(object sender, RoutedEventArgs e)
     {
-        this.WindowState = WindowState.Minimized;
+        WindowState = WindowState.Minimized;
     }
 
     private void btnMaximize_Click(object sender, RoutedEventArgs e)
     {
-        if (this.WindowState == WindowState.Normal)
-            this.WindowState = WindowState.Maximized;
-        else this.WindowState = WindowState.Normal;
+        if (WindowState == WindowState.Normal)
+            WindowState = WindowState.Maximized;
+        else WindowState = WindowState.Normal;
     }
 
     private async void btnDetail_Click(object sender, RoutedEventArgs e)
     {
-        Order o = OrderListView.SelectedItem as Order;
+        var o = OrderListView.SelectedItem as Order;
         if (o != null)
         {
             var orderDetail = await _orderDetailService.GetDetailOfOrder(o.Id);
             DetailListView.ItemsSource = orderDetail;
             decimal totalPrice = 0;
-            foreach (var d in orderDetail)
-            {
-                totalPrice += d.UnitPrice;
-            }
+            foreach (var d in orderDetail) totalPrice += d.UnitPrice;
             lbTotalPrice.Content = totalPrice.ToString();
         }
     }
 
-    private void btnCancel_Click(object sender, RoutedEventArgs e)
+    private void btntransport_Click(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        var o = OrderListView.SelectedItem as Order;
+        _orderService.TransportProduct(o.Id);
+        Window_Loaded(sender, e);
+    }
+
+    private void BtnBack_Click(object sender, RoutedEventArgs e)
+    {
+        var window = new ManagermentWindow(_customerService, _productService, _orderService, _orderDetailService);
+        window.Show();
+        Close();
     }
 }

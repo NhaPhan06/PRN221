@@ -1,24 +1,23 @@
-﻿using AutoMapper;
-using BussinessObject.CartService;
-using BussinessObject.IService;
+﻿using BussinessObject.CartService;
 using DataAccess.DataAccess;
 using DataAccess.IRepository.IUnitOfWork;
 
-namespace BussinessObject.Service;
+namespace BussinessObject.IService.Service;
 
 public class OrderService : IOrderService
 {
-    private IUnitOfWork _unitOfWork;
-    private IOrderDetailService _detailService;
+    private readonly IOrderDetailService _detailService;
+    private readonly IUnitOfWork _unitOfWork;
 
     public OrderService(IUnitOfWork unitOfWork, IOrderDetailService detailService)
     {
         _unitOfWork = unitOfWork;
         _detailService = detailService;
     }
+
     public async Task<List<Order>> GetAllOrder()
     {
-        return _unitOfWork.Order.GetAll().ToList();
+        return await _unitOfWork.Order.GetAllOrderDesc();
     }
 
     public Task<List<Order>> GetOrderOfCustomer(Guid customerId)
@@ -28,9 +27,9 @@ public class OrderService : IOrderService
 
     public async Task OrderPizza(Customer customer, List<Cart> carts)
     {
-        
-        List<Product> list = _unitOfWork.Product.GetAll().ToList();
-        Order order = new Order();
+        decimal total = 0;
+        var list = _unitOfWork.Product.GetAll().ToList();
+        var order = new Order();
         order.Id = Guid.NewGuid();
         order.OrderDate = DateTime.Now;
         order.CustomerId = customer.Id;
@@ -42,8 +41,13 @@ public class OrderService : IOrderService
         {
             _detailService.CreateOrderDetail(order.Id, c.Id, c.Price, c.Quantity);
             list.Find(p => p.Id == c.Id).Quantity -= c.Quantity;
+            total += c.Price;
             _unitOfWork.Save();
         }
+
+        order.Price = total;
+        _unitOfWork.Order.Update(order);
+        _unitOfWork.Save();
     }
 
     public async Task CancleOrder(Guid id)
@@ -51,6 +55,11 @@ public class OrderService : IOrderService
         _unitOfWork.Order.GetById(id).Status = "Cancel";
         _detailService.CancelOrderDetail(id);
         _unitOfWork.Save();
-        
+    }
+
+    public async Task TransportProduct(Guid id)
+    {
+        _unitOfWork.Order.GetById(id).Status = "Transport";
+        _unitOfWork.Save();
     }
 }

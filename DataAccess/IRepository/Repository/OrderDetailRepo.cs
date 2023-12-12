@@ -1,6 +1,6 @@
 ﻿using DataAccess.DataAccess;
-using DataAccess.DataAccess.Repository.Generic;
 using DataAccess.IRepository;
+using DataAccess.IRepository.Repository.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repository;

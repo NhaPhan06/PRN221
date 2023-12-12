@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows;
 using BussinessObject.IService;
 using DataAccess.DataAccess;
 
@@ -8,13 +6,15 @@ namespace WPF_Presentation;
 
 public partial class CustomerWindow : Window
 {
-    
-    ICustomerService _customerService;
-    IOrderService _orderService;
-    IProductService _productService;
-    private IOrderDetailService _orderDetailService;
-    private Customer _customer;
-    public CustomerWindow(Customer customer, ICustomerService customerService, IProductService productService, IOrderService orderService, IOrderDetailService orderDetailService)
+    private readonly Customer _customer;
+
+    private readonly ICustomerService _customerService;
+    private readonly IOrderDetailService _orderDetailService;
+    private readonly IOrderService _orderService;
+    private readonly IProductService _productService;
+
+    public CustomerWindow(Customer customer, ICustomerService customerService, IProductService productService,
+        IOrderService orderService, IOrderDetailService orderDetailService)
     {
         _orderDetailService = orderDetailService;
         _orderService = orderService;
@@ -26,14 +26,16 @@ public partial class CustomerWindow : Window
 
     private void OrderWindow_Click(object sender, RoutedEventArgs routedEventArgs)
     {
-        OrderHistoryWindow window = new OrderHistoryWindow(_customer, _customerService, _productService, _orderService, _orderDetailService);
+        var window = new OrderHistoryWindow(_customer, _customerService, _productService, _orderService,
+            _orderDetailService);
         window.Show();
         Close();
     }
 
     private void ShoppingWindow_Click(object sender, RoutedEventArgs routedEventArgs)
     {
-        StorePizzaWindow window = new StorePizzaWindow(_customer, _customerService, _productService, _orderService, _orderDetailService);
+        var window = new StorePizzaWindow(_customer, _customerService, _productService, _orderService,
+            _orderDetailService);
         window.Show();
         Close();
     }
@@ -45,7 +47,13 @@ public partial class CustomerWindow : Window
 
     private void BtnMinimize_OnClick(object sender, RoutedEventArgs e)
     {
-        this.WindowState = WindowState.Minimized;
+        WindowState = WindowState.Minimized;
     }
-    
+
+    private void BtnBack_OnClick(object sender, RoutedEventArgs e)
+    {
+        LoginWindow window = new LoginWindow(_customerService, _productService, _orderService, _orderDetailService);
+        window.Show();
+        Close();
+    }
 }

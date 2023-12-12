@@ -1,9 +1,7 @@
-﻿using BussinessObject.IService;
-using DataAccess.DataAccess;
-using DataAccess.IRepository;
+﻿using DataAccess.DataAccess;
 using DataAccess.IRepository.IUnitOfWork;
 
-namespace BussinessObject.Service;
+namespace BussinessObject.IService.Service;
 
 public class CustomerService : ICustomerService
 {
@@ -13,7 +11,7 @@ public class CustomerService : ICustomerService
     {
         _unitOfWork = unitOfWork;
     }
-    
+
     public async Task Register(Customer customer)
     {
         customer.Status = "ACTIVE";
@@ -23,10 +21,7 @@ public class CustomerService : ICustomerService
     public async Task<Customer> Login(string email, string pass)
     {
         var acc = _unitOfWork.Customer.Login(email, pass);
-        if (acc != null)
-        {
-            return acc;
-        }
+        if (acc != null) return acc;
         return null;
     }
 }

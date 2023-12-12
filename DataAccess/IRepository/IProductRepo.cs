@@ -6,5 +6,5 @@ namespace DataAccess.IRepository;
 public interface IProductRepo : IGeneric<Product>
 {
     Task<List<Product>> GetProductForMenu();
-    Task<List<Product>> Search(String name);
+    Task<List<Product>> Search(string name);
 }

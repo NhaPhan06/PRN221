@@ -2,7 +2,7 @@
 using DataAccess.IRepository.IGeneric;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.DataAccess.Repository.Generic;
+namespace DataAccess.IRepository.Repository.Generic;
 
 public class Generic<T> : IGeneric<T> where T : class
 {

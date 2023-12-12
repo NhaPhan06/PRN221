@@ -1,16 +1,17 @@
 ﻿using System.Windows;
 using BussinessObject.IService;
-using BussinessObject.Service;
 
 namespace WPF_Presentation;
 
 public partial class LoginWindow : Window
 {
-    ICustomerService _customerService;
-     IOrderService _orderService;
-     IProductService _productService;
-     private IOrderDetailService _orderDetailService;
-    public LoginWindow(ICustomerService customerService, IProductService productService, IOrderService orderService, IOrderDetailService orderDetailService)
+    private readonly ICustomerService _customerService;
+    private readonly IOrderDetailService _orderDetailService;
+    private readonly IOrderService _orderService;
+    private readonly IProductService _productService;
+
+    public LoginWindow(ICustomerService customerService, IProductService productService, IOrderService orderService,
+        IOrderDetailService orderDetailService)
     {
         _orderDetailService = orderDetailService;
         _orderService = orderService;
@@ -21,7 +22,7 @@ public partial class LoginWindow : Window
 
     private void BtnMinimize_OnClick(object sender, RoutedEventArgs e)
     {
-        this.WindowState = WindowState.Minimized;
+        WindowState = WindowState.Minimized;
     }
 
     private void BtnClose_OnClick(object sender, RoutedEventArgs e)
@@ -33,13 +34,23 @@ public partial class LoginWindow : Window
     {
         var username = txtUser.Text;
         var pass = txtPass.Password;
-        var login = await _customerService.Login(username, pass);
-        if (login != null)
+        if (username == "admin" && pass == "1")
         {
-            CustomerWindow window = new CustomerWindow(login, _customerService , _productService , _orderService, _orderDetailService);
+            var window =
+                new ManagermentWindow(_customerService, _productService, _orderService, _orderDetailService);
             window.Show();
             Close();
         }
+
+        var login = await _customerService.Login(username, pass);
+        if (login != null)
+        {
+            var window = new CustomerWindow(login, _customerService, _productService, _orderService,
+                _orderDetailService);
+            window.Show();
+            Close();
+        }
+
         Error.Content = "LOGIN FAIL !";
     }
 }

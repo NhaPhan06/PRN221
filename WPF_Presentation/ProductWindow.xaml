@@ -3,10 +3,160 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:WPF_Presentation"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="ProductWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="StorePizzaWindow" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="HeaderStyle" TargetType="GridViewColumnHeader">
+            <Setter Property="Background" Value="White" />
+        </Style>
+    </Window.Resources>
+    <Border CornerRadius="12">
+        <Border CornerRadius="10"
+                BorderThickness="2"
+                Opacity="0.95">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0" />
+                    <GradientStop Color="#DA34AE" Offset="0.75" />
+                    <GradientStop Color="#8A16C1" Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0" />
+                    <GradientStop Color="#1B1448" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="pnlControlBar"
+                            Grid.Row="0"
+                            Orientation="Horizontal"
+                            FlowDirection="RightToLeft"
+                            Background="Transparent"
+                            Margin="0,0,0,0"
+                            MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                            MouseEnter="pnlControlBar_MouseEnter">
+                    <Button x:Name="btnClose"
+                            Style="{StaticResource controlButton}"
+                            Tag="{StaticResource color4}"
+                            Click="btnClose_Click">
+                        <fa:IconImage Icon="Xmark" Foreground="Beige" Style="{StaticResource controlButtonIcon}" />
+                    </Button>
+                    <Button x:Name="btnMaximize"
+                            Style="{StaticResource controlButton}"
+                            Tag="{StaticResource color6}"
+                            Click="btnMaximize_Click">
+                        <fa:IconImage Icon="Square" Foreground="Beige" Style="{StaticResource controlButtonIcon}" />
+                    </Button>
+                    <Button x:Name="btnMinimize"
+                            Style="{StaticResource controlButton}"
+                            Tag="{StaticResource color8}"
+                            Click="btnMinimize_Click">
+                        <fa:IconImage Icon="WindowMinimize" Foreground="Beige"
+                                      Style="{StaticResource controlButtonIcon}" />
+                    </Button>
+                    <Button x:Name="btnBack"
+                            Style="{StaticResource controlButton}"
+                            Tag="{StaticResource color8}"
+                            Click="BtnBack_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Beige" />
+                    </Button>
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="270" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Margin="0,0,0,0">
+                            <Label FontWeight="Bold" FontSize="20" Margin="0,0,0,10" Foreground="Azure">PRODUCT</Label>
+                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                                <TextBlock Text="ID" Width="50" VerticalAlignment="Center" Foreground="Azure" />
+                                <TextBox Name="TxtId" Width="200" Text="{Binding Path=Id, Mode=Default}"
+                                         DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}"
+                                         IsReadOnly="True"
+                                         IsEnabled="False" VerticalAlignment="Center" Background="Azure" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                                <TextBlock Text="Name" Width="50" VerticalAlignment="Center" Foreground="Azure" />
+                                <TextBox Name="TxtName" Width="200" Text="{Binding Path=Name, Mode=Default}"
+                                         DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}"
+                                         VerticalAlignment="Center" Background="Azure" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                                <TextBlock Text="Quantity" Width="50" VerticalAlignment="Center" Foreground="Azure" />
+                                <TextBox Name="TxtQuantity" Width="200" Text="{Binding Path=Quantity, Mode=Default}"
+                                         DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}"
+                                         VerticalAlignment="Center" Background="Azure" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                                <TextBlock Text="Price" Width="50" VerticalAlignment="Center" Foreground="Azure" />
+                                <TextBox Name="TxtPrice" Width="200" Text="{Binding Path=UnitPrice, Mode=Default}"
+                                         DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}"
+                                         VerticalAlignment="Center" Background="Azure" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                                <TextBlock Text="Image" Width="50" VerticalAlignment="Center" Foreground="Azure" />
+                                <TextBox Name="TxtImage" Width="200" Text="{Binding Path=Image, Mode=Default}"
+                                         DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}"
+                                         VerticalAlignment="Center" Background="Azure" />
+                            </StackPanel>
+                            <Label Name="Alert" FontWeight="Bold" FontSize="10" Margin="0,0,0,0" Foreground="Red" />
+                        </StackPanel>
+                        <Grid Grid.Row="1" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                                <Button Margin="10" Width="100" Content="ADD" Click="btnAdd_Click" />
+                                <Button Margin="10" Width="100" Content="UPDATE" Click="btnUpdate_Click" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                                <Button Margin="10" Width="100" Content="CLEAR" Click="btnClear_Click" />
+                                <Button Margin="10" Width="100" Content="STATUS" Click="btnStatus_Click" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <ListView Name="ProductListView" ItemsSource="{Binding Products}" Margin="20,0,0,0">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Foreground" Value="White" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
+                                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Quantity" Width="60"
+                                                    DisplayMemberBinding="{Binding Quantity}" />
+                                    <GridViewColumn Header="Price" Width="100"
+                                                    DisplayMemberBinding="{Binding UnitPrice}" />
+                                    <GridViewColumn Header="Image" Width="100" DisplayMemberBinding="{Binding Image}" />
+                                    <GridViewColumn Header="Status" Width="100" DisplayMemberBinding="{Binding Status}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Border>
 </Window>
